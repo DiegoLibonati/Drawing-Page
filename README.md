@@ -35,7 +35,7 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Drawing%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Drawing%20Page`
 
 ## Video
 
