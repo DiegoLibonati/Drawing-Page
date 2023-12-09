@@ -23,19 +23,9 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 2. CSS3
 3. HTML5
 
-## Galery
-
-![drawing-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/draw-0.jpg)
-
-![drawing-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/draw-1.jpg)
-
-![drawing-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/draw-2.jpg)
-
-![drawing-page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Javascript/Imagenes/draw-3.jpg)
-
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Drawing%20Page`
+[`https://www.diegolibonati.com.ar/#/project/27`](https://www.diegolibonati.com.ar/#/project/27)
 
 ## Video
 
