@@ -1,4 +1,4 @@
-# Drawing-Page
+# Drawing Page
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/27`](https://www.diegolibonati.com.ar/#/project/27)
+[`https://www.diegolibonati.com.ar/#/project/Drawing-Page`](https://www.diegolibonati.com.ar/#/project/Drawing-Page)
 
 ## Video
 
