@@ -24,7 +24,7 @@
 
 I made a web page in which through canvas you can draw. In this canvas box you can draw with different brush sizes and change the color of the brush. There is also a clear button to clear the whole canvas.
 
-**¡¡¡NOT SUPPORT FOR MOBILE!!!**
+¡¡¡NOT SUPPORT FOR MOBILE!!!
 
 ## Technologies used
 
