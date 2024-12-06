@@ -23,14 +23,15 @@
   </head>
   <body>
     <canvas id="canvas" width="800px" height="800px"></canvas>
+
     <div class="toolbox">
-      <button id="increase">+</button>
+      <button id="increase" aria-label="increase size">+</button>
       <span id="size">30</span>
-      <button id="decrease">-</button>
+      <button id="decrease" aria-label="decrease size">-</button>
       <input type="color" id="color" />
-      <button id="clear">Clear</button>
+      <button id="clear" aria-label="clear board">Clear</button>
     </div>
 
-    <script type="module" src="./src/script.ts"></script>
+    <script type="module" src="./src/index.ts"></script>
   </body>
 </html>

@@ -4,21 +4,8 @@
 
 1. Clone the repository
 2. Join to the correct path of the clone
-3. Install LiveServer extension from Visual Studio Code [OPTIONAL]
-4. Click in "Go Live" from LiveServer extension
-
----
-
-1. Clone the repository
-2. Join to the correct path of the clone
-3. Open index.html in your favorite navigator
-
----
-
-1. Clone the repository
-2. Join to the correct path of the clone
-3. Execute: `yarn install`
-4. Execute: `yarn dev`
+3. Execute: `yarn install` or `npm install`
+4. Execute: `yarn dev` or `npm dev`
 
 ## Description
 
@@ -32,6 +19,28 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 2. CSS3
 3. HTML5
 
+## Libraries used
+
+#### Dependencies
+
+```
+"@types/jest": "^29.5.14"
+```
+
+#### devDependencies
+
+```
+"@testing-library/dom": "^10.4.0"
+"@testing-library/jest-dom": "^6.6.3"
+"@testing-library/user-event": "^14.5.2"
+"jest": "^29.7.0"
+"jest-environment-jsdom": "^29.7.0"
+"jest-fixed-jsdom": "^0.0.9"
+"ts-jest": "^29.2.5"
+"typescript": "^5.2.2"
+"vite": "^5.1.4"
+```
+
 ## Portfolio Link
 
 [`https://www.diegolibonati.com.ar/#/project/Drawing-Page`](https://www.diegolibonati.com.ar/#/project/Drawing-Page)
@@ -40,24 +49,7 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 
 https://user-images.githubusercontent.com/99032604/199621616-777a3055-a1dc-4c1d-a0c4-5e04c222aa27.mp4
 
-## Documentation
+## Testing
 
-These two functions such as `drawCircle()` and `drawLine()` will be in charge of generating the drawings on the canvas:
-
-```
-const drawCircle = (x: number, y: number): void => {
-  ctx?.beginPath();
-  ctx?.arc(x, y, size, 0, Math.PI * 2);
-  ctx.fillStyle = color;
-  ctx?.fill();
-};
-
-const drawLine = (x1: number, y1: number, x2: number, y2: number): void => {
-  ctx.beginPath();
-  ctx.moveTo(x1, y1);
-  ctx.lineTo(x2, y2);
-  ctx.strokeStyle = color;
-  ctx.lineWidth = size * 2;
-  ctx.stroke();
-};
-```
+1. Join to the correct path of the clone
+2. Execute: `yarn test` or `npm test`
