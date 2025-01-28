@@ -29,7 +29,3 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-
-canvas {
-  border: 0.1rem solid var(--black-color);
-}
