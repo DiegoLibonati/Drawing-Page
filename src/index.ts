@@ -1,4 +1,4 @@
-import { getElements } from "./helpers/getElements";
+import { getElements } from "@src/helpers/getElements";
 
 let ctx: CanvasRenderingContext2D;
 
