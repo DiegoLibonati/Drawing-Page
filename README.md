@@ -24,6 +24,7 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 1. Typescript
 2. CSS3
 3. HTML5
+4. Vite
 
 ## Libraries used
 
