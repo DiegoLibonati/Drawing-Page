@@ -36,7 +36,6 @@
     <!-- <link rel="manifest" href="/manifest.json" /> -->
 
     <link rel="stylesheet" type="text/css" href="./src/index.css" />
-    <link rel="stylesheet" type="text/css" href="./src/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,30 +48,7 @@
     ></script>
   </head>
   <body>
-    <canvas class="canvas" id="canvas" width="800px" height="800px"></canvas>
-
-    <div class="toolbox">
-      <button
-        id="increase"
-        aria-label="increase size"
-        class="toolbox__btn-increase"
-      >
-        +
-      </button>
-      <span id="size" class="toolbox__size">30</span>
-      <button
-        id="decrease"
-        aria-label="decrease size"
-        class="toolbox__btn-decrease"
-      >
-        -
-      </button>
-      <input type="color" id="color" class="toolbox__input-color" />
-      <button id="clear" aria-label="clear board" class="toolbox__btn-clear">
-        Clear
-      </button>
-    </div>
-
+    <div id="app"></div>
     <script type="module" src="./src/index.ts"></script>
   </body>
 </html>

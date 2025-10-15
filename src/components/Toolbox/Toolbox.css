@@ -1,8 +1,3 @@
-.canvas {
-  border: 0.1rem solid var(--black-color);
-  background-color: var(--white-color);
-}
-
 .toolbox {
   display: flex;
   background-color: var(--primary-color);
