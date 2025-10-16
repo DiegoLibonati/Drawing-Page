@@ -1,6 +1,6 @@
 import { DrawingState } from "@src/entities/states";
 
-import { Store } from "@src/stores/store";
+import { Store } from "@src/core/store";
 
 export class DrawingStore extends Store<DrawingState> {
   constructor(initialState: DrawingState) {
