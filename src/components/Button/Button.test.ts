@@ -6,7 +6,7 @@ import { ButtonProps } from "@src/entities/props";
 import { Button } from "@src/components/Button/Button";
 
 type RenderComponent = {
-  props: ButtonProps;
+  props: { onClick: jest.Mock } & ButtonProps;
   container: HTMLButtonElement;
 };
 
@@ -18,7 +18,7 @@ const renderComponent = (
   className?: string,
   onClick?: jest.Mock
 ): RenderComponent => {
-  const props: ButtonProps = {
+  const props = {
     id,
     ariaLabel,
     type,
