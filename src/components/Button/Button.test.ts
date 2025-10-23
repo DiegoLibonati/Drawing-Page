@@ -183,7 +183,9 @@ describe("Button.ts", () => {
       );
 
       expect(container.innerHTML).toBe(htmlContent);
-      expect(container.querySelector(".icon")).toBeInTheDocument();
+      expect(
+        container.querySelector<HTMLSpanElement>(".icon")
+      ).toBeInTheDocument();
     });
 
     test("It should render empty content when children is not provided", () => {

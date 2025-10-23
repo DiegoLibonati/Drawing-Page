@@ -52,13 +52,14 @@ describe("Toolbox.ts", () => {
         screen.getByRole("button", { name: /clear size/i })
       ).toBeInTheDocument();
 
-      const colorInput = container.querySelector(
+      const colorInput = container.querySelector<HTMLInputElement>(
         "input[type='color']"
-      ) as HTMLInputElement;
+      );
       expect(colorInput).toBeInTheDocument();
       expect(colorInput?.value).toBe("#ff0000");
 
-      const sizeLabel = container.querySelector(".toolbox__size");
+      const sizeLabel =
+        container.querySelector<HTMLSpanElement>(".toolbox__size");
       expect(sizeLabel?.textContent).toBe("10");
     });
 
@@ -121,13 +122,13 @@ describe("Toolbox.ts", () => {
     test("It should call setColor with new value when color input changes", async () => {
       const { container } = renderComponent();
 
-      const colorInput = container.querySelector(
+      const colorInput = container.querySelector<HTMLInputElement>(
         "input[type='color']"
-      ) as HTMLInputElement;
-      expect(colorInput.value).toBe("#ff0000");
+      );
+      expect(colorInput!.value).toBe("#ff0000");
 
-      colorInput.value = "#00ff00";
-      colorInput.dispatchEvent(new Event("change"));
+      colorInput!.value = "#00ff00";
+      colorInput!.dispatchEvent(new Event("change"));
 
       expect(drawingStore.setColor).toHaveBeenCalledWith("#00ff00");
     });
@@ -151,7 +152,8 @@ describe("Toolbox.ts", () => {
 
       renderCallback?.();
 
-      const sizeLabel = container.querySelector(".toolbox__size");
+      const sizeLabel =
+        container.querySelector<HTMLSpanElement>(".toolbox__size");
       expect(sizeLabel?.textContent).toBe("20");
     });
   });

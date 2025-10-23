@@ -19,11 +19,11 @@ describe("DrawingPage.ts", () => {
     test("It should render the canvas and toolbox", () => {
       const { container } = renderComponent();
 
-      const canvas = container.querySelector("canvas");
+      const canvas = container.querySelector<HTMLCanvasElement>("canvas");
       expect(canvas).toBeInTheDocument();
       expect(canvas?.className).toBe("canvas");
 
-      const toolbox = container.querySelector(".toolbox");
+      const toolbox = container.querySelector<HTMLDivElement>(".toolbox");
       expect(toolbox).toBeInTheDocument();
     });
   });
