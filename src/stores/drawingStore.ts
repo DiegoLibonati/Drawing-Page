@@ -1,13 +1,13 @@
-import { DrawingState } from "@src/entities/states";
+import type { DrawingState } from "@/types/states";
 
-import { Store } from "@src/core/store";
+import { Store } from "@/core/store";
 
 export class DrawingStore extends Store<DrawingState> {
-  constructor(initialState: DrawingState) {
-    super(initialState);
-  }
+  // constructor(initialState: DrawingState) {
+  //   super(initialState);
+  // }
 
-  public increaseSize() {
+  public increaseSize(): void {
     const { size } = this.getState();
 
     const max = 30;
@@ -16,7 +16,7 @@ export class DrawingStore extends Store<DrawingState> {
     this.setState({ size: newSize >= max ? max : newSize });
   }
 
-  public decreaseSize() {
+  public decreaseSize(): void {
     const { size } = this.getState();
 
     const min = 1;
@@ -25,11 +25,11 @@ export class DrawingStore extends Store<DrawingState> {
     this.setState({ size: newSize <= min ? min : newSize });
   }
 
-  public setColor(color: string) {
+  public setColor(color: string): void {
     this.setState({ color: color });
   }
 
-  public setCanvasContext(ctx: CanvasRenderingContext2D | null) {
+  public setCanvasContext(ctx: CanvasRenderingContext2D | null): void {
     this.setState({ canvasCtx: ctx });
   }
 }

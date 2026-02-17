@@ -1,7 +1,11 @@
-import { DrawingPage } from "@src/pages/DrawingPage/DrawingPage";
+import "@/index.css";
+import { DrawingPage } from "@/pages/DrawingPage/DrawingPage";
 
-const onInit = () => {
-  const app = document.querySelector<HTMLDivElement>("#app")!;
+const onInit = (): void => {
+  const app = document.querySelector<HTMLDivElement>("#app");
+
+  if (!app) throw new Error(`You must render a container to mount the app.`);
+
   const drawingPage = DrawingPage();
   app.appendChild(drawingPage);
 };

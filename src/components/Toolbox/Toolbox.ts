@@ -1,35 +1,38 @@
-import { Button } from "@src/components/Button/Button";
+import type { ToolboxComponent } from "@/types/components";
 
-import { drawingStore } from "@src/stores/drawingStore";
+import { Button } from "@/components/Button/Button";
 
-import "@src/components/Toolbox/Toolbox.css";
+import { drawingStore } from "@/stores/drawingStore";
 
-const handleIncreaseSize = () => {
+import "@/components/Toolbox/Toolbox.css";
+
+const handleIncreaseSize = (): void => {
   drawingStore.increaseSize();
 };
 
-const handleDecreaseSize = () => {
+const handleDecreaseSize = (): void => {
   drawingStore.decreaseSize();
 };
 
-const handleSetColor = (e: Event) => {
+const handleSetColor = (e: Event): void => {
   const value = (e.target as HTMLInputElement).value;
-
   drawingStore.setColor(value);
 };
 
-const handleClearCanvas = () => {
+const handleClearCanvas = (): void => {
   const { canvasCtx } = drawingStore.getState();
 
   const canvas = document.querySelector<HTMLCanvasElement>(".canvas");
 
-  canvasCtx!.clearRect(0, 0, canvas!.width, canvas!.height);
+  if (canvasCtx && canvas) {
+    canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+  }
 };
 
-export const Toolbox = (): HTMLDivElement => {
+export const Toolbox = (): ToolboxComponent => {
   const { size, color } = drawingStore.getState();
 
-  const divRoot = document.createElement("div");
+  const divRoot = document.createElement("div") as ToolboxComponent;
   divRoot.className = "toolbox";
 
   divRoot.innerHTML = `
@@ -68,12 +71,16 @@ export const Toolbox = (): HTMLDivElement => {
   divRoot.insertBefore(buttonDecrease, toolboxInputColor);
   divRoot.append(buttonClear);
 
+  const handleColorChange = (e: Event): void => {
+    handleSetColor(e);
+  };
+
   buttonIncrease.addEventListener("click", handleIncreaseSize);
   buttonDecrease.addEventListener("click", handleDecreaseSize);
   buttonClear.addEventListener("click", handleClearCanvas);
-  toolboxInputColor?.addEventListener("change", (e) => handleSetColor(e));
+  toolboxInputColor?.addEventListener("change", handleColorChange);
 
-  const renderSize = () => {
+  const renderSize = (): void => {
     const { size } = drawingStore.getState();
 
     const toolboxSize =
@@ -81,10 +88,25 @@ export const Toolbox = (): HTMLDivElement => {
 
     if (String(size) === toolboxSize?.textContent) return;
 
-    toolboxSize!.textContent = String(size);
+    if (toolboxSize) {
+      toolboxSize.textContent = String(size);
+    }
   };
 
-  drawingStore.subscribe("size", renderSize);
+  const unsubscribe = drawingStore.subscribe("size", renderSize);
+
+  divRoot.cleanup = (): void => {
+    unsubscribe();
+
+    buttonIncrease.removeEventListener("click", handleIncreaseSize);
+    buttonDecrease.removeEventListener("click", handleDecreaseSize);
+    buttonClear.removeEventListener("click", handleClearCanvas);
+    toolboxInputColor?.removeEventListener("change", handleColorChange);
+
+    buttonIncrease.cleanup?.();
+    buttonDecrease.cleanup?.();
+    buttonClear.cleanup?.();
+  };
 
   return divRoot;
 };

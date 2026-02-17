@@ -1,52 +1,13 @@
-import { Toolbox } from "@src/components/Toolbox/Toolbox";
+import type { Page } from "@/types/pages";
 
-import { drawingStore } from "@src/stores/drawingStore";
+import { Toolbox } from "@/components/Toolbox/Toolbox";
 
-import "@src/pages/DrawingPage/DrawingPage.css";
+import { drawingStore } from "@/stores/drawingStore";
 
-let isPressed: boolean = false;
-let x: number | null = null;
-let y: number | null = null;
+import "@/pages/DrawingPage/DrawingPage.css";
 
-const handleMouseDown = (e: MouseEvent) => {
-  isPressed = true;
-
-  x = e.offsetX;
-  y = e.offsetY;
-};
-
-const handleMouseUp = () => {
-  isPressed = false;
-  x = null;
-  y = null;
-};
-
-const handleMouseMove = (e: MouseEvent) => {
-  const { canvasCtx, size, color } = drawingStore.getState();
-
-  if (!isPressed) return;
-
-  const x2 = e.offsetX;
-  const y2 = e.offsetY;
-
-  canvasCtx!.beginPath();
-  canvasCtx!.arc(x!, y!, size, 0, Math.PI * 2);
-  canvasCtx!.fillStyle = color;
-  canvasCtx!.fill();
-
-  canvasCtx!.beginPath();
-  canvasCtx!.moveTo(x!, y!);
-  canvasCtx!.lineTo(x2, y2);
-  canvasCtx!.strokeStyle = color;
-  canvasCtx!.lineWidth = size * 2;
-  canvasCtx!.stroke();
-
-  x = x2;
-  y = y2;
-};
-
-export const DrawingPage = (): HTMLDivElement => {
-  const divRoot = document.createElement("div");
+export const DrawingPage = (): Page => {
+  const divRoot = document.createElement("div") as Page;
   divRoot.className = "";
 
   divRoot.innerHTML = `
@@ -61,9 +22,59 @@ export const DrawingPage = (): HTMLDivElement => {
 
   divRoot.append(toolbox);
 
-  canvas!.addEventListener("mousedown", (e) => handleMouseDown(e));
+  let isPressed = false;
+  let x: number | null = null;
+  let y: number | null = null;
+
+  const handleMouseDown = (e: MouseEvent): void => {
+    isPressed = true;
+    x = e.offsetX;
+    y = e.offsetY;
+  };
+
+  const handleMouseUp = (): void => {
+    isPressed = false;
+    x = null;
+    y = null;
+  };
+
+  const handleMouseMove = (e: MouseEvent): void => {
+    const { canvasCtx, size, color } = drawingStore.getState();
+
+    if (!isPressed || !canvasCtx) return;
+
+    const x2 = e.offsetX;
+    const y2 = e.offsetY;
+
+    canvasCtx.beginPath();
+    canvasCtx.arc(x!, y!, size, 0, Math.PI * 2);
+    canvasCtx.fillStyle = color;
+    canvasCtx.fill();
+
+    canvasCtx.beginPath();
+    canvasCtx.moveTo(x!, y!);
+    canvasCtx.lineTo(x2, y2);
+    canvasCtx.strokeStyle = color;
+    canvasCtx.lineWidth = size * 2;
+    canvasCtx.stroke();
+
+    x = x2;
+    y = y2;
+  };
+
+  canvas!.addEventListener("mousedown", handleMouseDown);
   canvas!.addEventListener("mouseup", handleMouseUp);
-  canvas!.addEventListener("mousemove", (e) => handleMouseMove(e));
+  canvas!.addEventListener("mousemove", handleMouseMove);
+
+  divRoot.cleanup = (): void => {
+    canvas!.removeEventListener("mousedown", handleMouseDown);
+    canvas!.removeEventListener("mouseup", handleMouseUp);
+    canvas!.removeEventListener("mousemove", handleMouseMove);
+
+    toolbox.cleanup?.();
+
+    drawingStore.setCanvasContext(null);
+  };
 
   return divRoot;
 };
