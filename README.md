@@ -33,7 +33,7 @@ I made a web page in which through canvas you can draw. In this canvas box you c
 #### Dependencies
 
 ```
-There are no dependencies.
+No production dependencies - Pure Vanilla TypeScript
 ```
 
 #### devDependencies
@@ -77,3 +77,7 @@ For coverage report:
 ```bash
 npm run test:coverage
 ```
+
+## Known Issues
+
+None at the moment.

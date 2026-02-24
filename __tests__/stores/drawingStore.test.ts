@@ -1,5 +1,7 @@
 import { DrawingStore } from "@/stores/drawingStore";
 
+import { mockCtx } from "@tests/__mocks__/ctx.mock";
+
 describe("DrawingStore", () => {
   let store: DrawingStore;
 
@@ -58,24 +60,12 @@ describe("DrawingStore", () => {
   });
 
   it("should set canvas context", () => {
-    const mockCtx = {
-      fillStyle: "",
-      strokeStyle: "",
-      clearRect: jest.fn(),
-    } as unknown as CanvasRenderingContext2D;
-
     store.setCanvasContext(mockCtx);
 
     expect(store.get("canvasCtx")).toBe(mockCtx);
   });
 
   it("should set canvas context to null", () => {
-    const mockCtx = {
-      fillStyle: "",
-      strokeStyle: "",
-      clearRect: jest.fn(),
-    } as unknown as CanvasRenderingContext2D;
-
     store.setCanvasContext(mockCtx);
     store.setCanvasContext(null);
 
