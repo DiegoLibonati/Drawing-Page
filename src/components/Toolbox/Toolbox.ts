@@ -48,21 +48,21 @@ export const Toolbox = (): ToolboxComponent => {
 
   const buttonIncrease = Button({
     id: "increase",
-    ariaLabel: "increase size",
+    ariaLabel: "Increase brush size",
     className: "toolbox__btn-increase",
     children: "+",
   });
 
   const buttonDecrease = Button({
     id: "decrease",
-    ariaLabel: "decrease size",
+    ariaLabel: "Decrease brush size",
     className: "toolbox__btn-decrease",
     children: "-",
   });
 
   const buttonClear = Button({
     id: "clear",
-    ariaLabel: "clear size",
+    ariaLabel: "Clear canvas",
     className: "toolbox__btn-clear",
     children: "Clear",
   });

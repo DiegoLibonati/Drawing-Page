@@ -50,13 +50,13 @@ describe("Toolbox Component", () => {
     renderComponent();
 
     expect(
-      screen.getByRole("button", { name: "increase size" })
+      screen.getByRole("button", { name: "Increase brush size" })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "decrease size" })
+      screen.getByRole("button", { name: "Decrease brush size" })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "clear size" })
+      screen.getByRole("button", { name: "Clear canvas" })
     ).toBeInTheDocument();
   });
 
@@ -65,7 +65,7 @@ describe("Toolbox Component", () => {
     renderComponent();
 
     const increaseButton = screen.getByRole("button", {
-      name: "increase size",
+      name: "Increase brush size",
     });
     await user.click(increaseButton);
 
@@ -79,7 +79,7 @@ describe("Toolbox Component", () => {
     renderComponent();
 
     const decreaseButton = screen.getByRole("button", {
-      name: "decrease size",
+      name: "Decrease brush size",
     });
     await user.click(decreaseButton);
 

@@ -1,4 +1,4 @@
 .canvas {
-  border: 0.1rem solid var(--color-black);
+  border: 0.0625rem solid var(--color-black);
   background-color: var(--color-white);
 }
