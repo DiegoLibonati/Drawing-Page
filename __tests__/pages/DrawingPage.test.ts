@@ -1,6 +1,6 @@
 import type { Page } from "@/types/pages";
 
-import { DrawingPage } from "@/pages/DrawingPage/DrawingPage";
+import DrawingPage from "@/pages/DrawingPage/DrawingPage";
 
 import { drawingStore } from "@/stores/drawingStore";
 

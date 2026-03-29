@@ -1,7 +1,7 @@
 import type { ButtonComponent } from "@/types/components";
 import type { ButtonProps } from "@/types/props";
 
-export const Button = ({
+const Button = ({
   id,
   ariaLabel,
   type,
@@ -26,3 +26,5 @@ export const Button = ({
 
   return button;
 };
+
+export default Button;

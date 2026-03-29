@@ -1,12 +1,12 @@
 import type { Page } from "@/types/pages";
 
-import { Toolbox } from "@/components/Toolbox/Toolbox";
+import Toolbox from "@/components/Toolbox/Toolbox";
 
 import { drawingStore } from "@/stores/drawingStore";
 
 import "@/pages/DrawingPage/DrawingPage.css";
 
-export const DrawingPage = (): Page => {
+const DrawingPage = (): Page => {
   const divRoot = document.createElement("div") as Page;
   divRoot.className = "";
 
@@ -78,3 +78,5 @@ export const DrawingPage = (): Page => {
 
   return divRoot;
 };
+
+export default DrawingPage;

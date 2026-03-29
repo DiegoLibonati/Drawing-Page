@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 
 import type { ToolboxComponent } from "@/types/components";
 
-import { Toolbox } from "@/components/Toolbox/Toolbox";
+import Toolbox from "@/components/Toolbox/Toolbox";
 
 import { drawingStore } from "@/stores/drawingStore";
 

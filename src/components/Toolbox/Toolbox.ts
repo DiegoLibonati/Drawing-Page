@@ -1,6 +1,6 @@
 import type { ToolboxComponent } from "@/types/components";
 
-import { Button } from "@/components/Button/Button";
+import Button from "@/components/Button/Button";
 
 import { drawingStore } from "@/stores/drawingStore";
 
@@ -29,7 +29,7 @@ const handleClearCanvas = (): void => {
   }
 };
 
-export const Toolbox = (): ToolboxComponent => {
+const Toolbox = (): ToolboxComponent => {
   const { size, color } = drawingStore.getState();
 
   const divRoot = document.createElement("div") as ToolboxComponent;
@@ -110,3 +110,5 @@ export const Toolbox = (): ToolboxComponent => {
 
   return divRoot;
 };
+
+export default Toolbox;
